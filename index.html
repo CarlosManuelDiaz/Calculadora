@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="main.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-1 offset-md-1">
+            </div>
+            <div class=" col-6 input-group input-group-sm">
+                <h1 class="display-3">Calculadora</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class=" col-md-4 input-group input-group-sm mb-4">
+                <input type="number" class="form-control" id="Pantalla">
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <button type="button" id="siete" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(7)">7</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="ocho" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(8)">8</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="nueve" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(9)">9</button>
+            </div>
+            <div class="col-1">
+                <button type="button" id="sumar" class="btn btn-primary btn-lg btn-info btn-block" onclick="botonOperador(`+`)">+</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <button type="button" id="cuatro" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(4)">4</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="cinco" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(5)">5</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="seis" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(6)">6</button>
+            </div>
+            <div class="col-1">
+                <button type="button" id="restar" class="btn btn-primary btn-lg btn-info btn-block"onclick="botonOperador(`-`)">-</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <button type="button" id="uno" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(1)">1</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="dos" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(2)">2</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="tres" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(3)">3</button>
+            </div>
+            <div class="col-1">
+                <button type="button" id="multiplicar" class="btn btn-primary btn-lg btn-info btn-block" onclick="botonOperador(`*`)">*</button>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">
+                <button type="button" id="cero" class="btn btn-primary btn-lg btn-success btn-block" onclick="botonNumerico(0)">0</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="punto" class="btn btn-primary btn-lg btn-warning btn-block" onclick="botonNumerico(`,`)">,</button>
+            </div>
+
+            <div class="col-1">
+                <button type="button" id="igual" class="btn btn-primary btn-lg btn-danger btn-block"onclick="botonIgualar()">=</button>
+            </div>
+            <div class="col-1">
+                <button type="button" id="dividir" class="btn btn-primary btn-lg btn-info btn-block"onclick="botonOperador(`/`)">/</button>
+            </div>
+        </div>
+        <script>crearCalculadora();</script>
+</body>
+
+</html>

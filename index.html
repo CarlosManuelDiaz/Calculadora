@@ -4,13 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Calculadora</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <script src="main.js"></script>
+    
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -90,9 +95,16 @@
             </div>
             <div class="col-1">
                 <button type="button" id="dividir" class="btn btn-primary btn-lg btn-info btn-block"onclick="botonOperador(`/`)">/</button>
+                <button type="button" id="dividir" class="btn btn-primary btn-lg btn-info btn-block"onclick="botonreset()">C</button>
             </div>
         </div>
+        <div style="height:200px; width:200px; background: black" id="prueba">
+
+
+        </div>
+        <script src="main.js"></script>
         <script>crearCalculadora();</script>
+
 </body>
 
 </html>

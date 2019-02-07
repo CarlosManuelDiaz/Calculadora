@@ -1,7 +1,5 @@
 var miCalculadora;
-
 class CalculadoraClass {
-
     constructor() {
         this.resultado = "";
         this.numero1 = "";
@@ -9,94 +7,110 @@ class CalculadoraClass {
         this.operador = "";
     }
 
-    get getnumero1() {
-        return parseInt(this.numero1);
-    }
-    set setnumero1(value) {
-        this.numero1 = value;
-    }
-    get getnumero2() {
-        return parseInt(this.numero2);
-    }
-    set setnumero2(value) {
-        this.numero2 = value;
-    }
-    get getresultado() {
-        return this.resultado;
-    }
-    set setresultado(value) {
-        this.resultado = value;
-    }
-    get getoperador() {
-        return this.operador;
-    }
-    set setoperador(value) {
-        this.operador = value;
-    }
+    get getNumero1() { return parseInt(this.numero1); }
+    set setNumero1(value) { this.numero1 = value; }
+
+    get getNumero2() { return parseInt(this.numero2); }
+    set setNumero2(value) { this.numero2 = value; }
+
+    get getResultado() { return this.resultado; }
+    set setResultado(value) { this.resultado = value; }
+
+    get getOperador() { return this.operador; }
+    set setOperador(value) { this.operador = value; }
+
     sumar() {
-        this.resultado = this.getnumero1 + this.getnumero2;
+        this.resultado = this.getNumero1 + this.getNumero2;
     }
     restar() {
-        this.resultado = this.getnumero1 - this.getnumero2;
+        this.resultado = this.getNumero1 - this.getNumero2;
     }
     multiplicar() {
-        this.resultado = this.getnumero1 * this.getnumero2;
+        this.resultado = this.getNumero1 * this.getNumero2;
     }
     dividir() {
-        this.resultado = this.getnumero1 / this.getnumero2;
+        try {
+            if (this.getNumero2 === 0 && this.getOperador === '/') {
+                throw "No se puede dividir entre 0";
+            } else {
+                this.resultado = this.getNumero1 / this.getNumero2;
+            }
+        } catch (error) {
+            this.setResultado = error;
+        }
     }
     igualar() {
-        switch (this.getoperador) {
+
+        switch (this.getOperador) {
             case `+`:
                 this.sumar();
                 break;
             case `-`:
-                this.restar()
-                break;
-            case `*`:
-                this.multiplicar()
+                this.restar();
                 break;
             case `/`:
-                this.dividir()
+                this.dividir();
+                break;
+            case `*`:
+                this.multiplicar();
                 break;
             default:
                 break;
         }
-        this.setnumero1 = "";
-        this.setnumero2 = "";
-        this.setoperador = "";
+        this.setNumero1 = this.getResultado;
+        this.setNumero2 = "";
+        this.setOperador = "";
     }
-
-
-
+    reset() {
+        this.setNumero1 = "";
+        this.setNumero2 = "";
+        this.setOperador = "";
+        this.setResultado = "";
+    }
 }
-
-
 function botonNumerico(numero) {
-    // miCalculadora.numero1 += numero.toString();
-    // miCalculadora.numero2 += numero.toString();
-    if (miCalculadora.getoperador == "") {
+    if (miCalculadora.operador == "") {
         miCalculadora.numero1 += numero.toString();
+        console.log("El numero 1 es : " + miCalculadora.getNumero1);
     } else {
         miCalculadora.numero2 += numero.toString();
+        console.log("El numero 2 es : " + miCalculadora.getNumero2);
     }
-    miCalculadora.setresultado = (miCalculadora.numero1 + miCalculadora.operador + miCalculadora.numero2)
-    console.log("el resultado es " + miCalculadora.getresultado)
-    // console.log("El número1: " + miCalculadora.getnumero1);
-    // console.log("El número2: " + miCalculadora.getnumero2);
-
+    miCalculadora.resultado = (miCalculadora.numero1 + miCalculadora.operador + miCalculadora.numero2);
+    console.log(miCalculadora.getResultado);
 }
-function botonOperador(operador) {
-    miCalculadora.operador = operador
-
-}
-function botonIgualar() {
-    miCalculadora.igualar();
-    console.log(miCalculadora.getresultado);
-}
-
 function crearCalculadora() {
     miCalculadora = new CalculadoraClass("");
     console.log(miCalculadora);
 }
+function botonOperador(operador) {
+    miCalculadora.operador = operador;
+    console.log("El operador es: " + miCalculadora.getOperador);
+}
+function botonIgualar() {
+    miCalculadora.igualar();
+    console.log(miCalculadora.getResultado);
+}
+function botonreset() {
+    miCalculadora.reset()
+}
+
+
+$("#cero").click(
+    () => {
+            $("#prueba").slideDown();
+    }
+)
+$("#uno").click(
+    () => {
+            $("#prueba").slideUp();
+    }
+)
+$("#dos").click(
+    () => {
+            $("#prueba").slideToggle();
+    }
+)
+
+
 

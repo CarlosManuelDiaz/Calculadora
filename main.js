@@ -7,10 +7,10 @@ class CalculadoraClass {
         this.operador = "";
     }
 
-    get getNumero1() { return parseInt(this.numero1); }
+    get getNumero1() { return parseFloat(this.numero1); }
     set setNumero1(value) { this.numero1 = value; }
 
-    get getNumero2() { return parseInt(this.numero2); }
+    get getNumero2() { return parseFloat(this.numero2); }
     set setNumero2(value) { this.numero2 = value; }
 
     get getResultado() { return this.resultado; }
@@ -65,19 +65,19 @@ class CalculadoraClass {
         this.setNumero1 = "";
         this.setNumero2 = "";
         this.setOperador = "";
-        this.setResultado = "";
+        this.setResultado = document.getElementById('pantalla').innerHTML = (0);
     }
 }
 function botonNumerico(numero) {
     if (miCalculadora.operador == "") {
         miCalculadora.numero1 += numero.toString();
-        console.log("El numero 1 es : " + miCalculadora.getNumero1);
+        document.getElementById('pantalla').innerHTML = (miCalculadora.getNumero1);
     } else {
         miCalculadora.numero2 += numero.toString();
-        console.log("El numero 2 es : " + miCalculadora.getNumero2);
+        document.getElementById('pantalla').innerHTML = (miCalculadora.getNumero2);
     }
     miCalculadora.resultado = (miCalculadora.numero1 + miCalculadora.operador + miCalculadora.numero2);
-    console.log(miCalculadora.getResultado);
+    document.getElementById('pantalla').innerHTML =(miCalculadora.getResultado);
 }
 function crearCalculadora() {
     miCalculadora = new CalculadoraClass("");
@@ -85,32 +85,16 @@ function crearCalculadora() {
 }
 function botonOperador(operador) {
     miCalculadora.operador = operador;
-    console.log("El operador es: " + miCalculadora.getOperador);
+    document.getElementById('pantalla').innerHTML =(miCalculadora.getOperador);
 }
 function botonIgualar() {
     miCalculadora.igualar();
-    console.log(miCalculadora.getResultado);
+    document.getElementById('pantalla').innerHTML =(miCalculadora.getResultado);
 }
 function botonreset() {
     miCalculadora.reset()
-}
+};
 
-
-$("#cero").click(
-    () => {
-            $("#prueba").slideDown();
-    }
-)
-$("#uno").click(
-    () => {
-            $("#prueba").slideUp();
-    }
-)
-$("#dos").click(
-    () => {
-            $("#prueba").slideToggle();
-    }
-)
 
 
 
